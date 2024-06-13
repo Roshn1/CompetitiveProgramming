@@ -1,0 +1,24 @@
+class Solution{
+    int countCoPrime(int a[], int n)
+    {
+        // Complete the function
+        int count = 0;
+        for(int i = 0 ; i < a.length -1; i++){
+            if(gcdCheck(a[i], a[i+1]) != 1){
+                count++;
+            }
+        }
+        return count;
+    }
+    
+    public static int gcdCheck(int a , int b){
+        int r = a % b;
+        while(r != 0){
+            a = b;
+            b = r;
+            r = a % b;
+        }
+        int gcd = b;
+        return gcd;
+    }
+}
